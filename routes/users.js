@@ -14,8 +14,10 @@ router.get('/:name/tweets/:id', function(req, res) {
   var id = req.params.id;
   var list = store.find({name: name, id: id});
 
-  res.render('index', { title: 'Twitter.js - Posts by '+name, list: list
+  res.render('index', { title: 'Twitter.js - Posts by '+name, list: list, show_form: false
   });
 });
 
 module.exports = router;
+
+//io.sockets.emit("new_tweet", { /* tweet info */ });

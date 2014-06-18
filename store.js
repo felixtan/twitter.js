@@ -20,6 +20,9 @@ var store = function () {
     },
     find: function(properties) {
       return underscore.where(data, properties);
+    },
+    sizeOf: function() {
+      return data.length;
     }
   };
 }();
