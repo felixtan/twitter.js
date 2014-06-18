@@ -17,7 +17,7 @@ router.post('/submit', function(req, res) {
   var id = store.sizeOf();
 
   store.push(name, text, id); // does this function need id argument?
+  io.sockets.emit("new_tweet", { });
   res.redirect('/');
 });
 
-//io.sockets.emit("new_tweet", { /* tweet info */ });

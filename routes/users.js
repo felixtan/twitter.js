@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var store = require("../store");
+var io = require('socket.io');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -16,8 +17,9 @@ router.get('/:name/tweets/:id', function(req, res) {
 
   res.render('index', { title: 'Twitter.js - Posts by '+name, list: list, show_form: false
   });
+
+  //io.sockets.emit("new_tweet", { });
 });
 
 module.exports = router;
 
-//io.sockets.emit("new_tweet", { /* tweet info */ });
