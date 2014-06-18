@@ -9,9 +9,10 @@ router.get('/', function(req, res) {
 
 // this is a route
 
-router.get('/:name', function(req, res) {
+router.get('/:name/tweets/:id', function(req, res) {
   var name = req.params.name;
-  var list = store.find({name: name});
+  var id = req.params.id;
+  var list = store.find({name: name, id: id});
 
   res.render('index', { title: 'Twitter.js - Posts by '+name, list: list
   });

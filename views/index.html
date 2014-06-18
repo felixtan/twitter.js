@@ -13,6 +13,18 @@
     </div>
     <div class="col-md-9">
 
+  {% if show_form %}
+  <form action="/submit" method="POST">
+    <label for="name_field">Name:</label>
+    <input name="name" type="text" id="name_field" />
+
+    <label for="text_field">Text:</label>
+    <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+    <input type="submit" value="Submit" />
+  </form>
+  {% endif %}
+
       <h3>All Tweets</h3>
       {% for tweet in tweets %}
         <div class="tweets">
@@ -20,7 +32,7 @@
             <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg">
           </div>
           <div class = "tweet-msg">
-            <li>{{tweet.text}} - <a href="/users/{{tweet.name}}">{{tweet.name}}</a></li>
+            <li><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">{{tweet.text}}</a> - {{tweet.name}}</li>
           </div>
         </div>
       {% endfor %}

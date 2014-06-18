@@ -8,10 +8,11 @@ var store = function () {
   var data = [];
 
   return {
-    push: function(name, text) {
+    push: function(name, text, id) {
       data.push({
         "name": name,
-        "text": text
+        "text": text,
+        "id": id
       })
     },
     list: function() {
@@ -44,6 +45,10 @@ var getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
+// var getFakeId = function() {
+//   return Math.floor(100*Math.random());
+// }
+
 for(var i=0; i<10; i++) {
-  store.push(getFakeName(), getFakeTweet());
+  store.push(getFakeName(), getFakeTweet(), i);
 }
